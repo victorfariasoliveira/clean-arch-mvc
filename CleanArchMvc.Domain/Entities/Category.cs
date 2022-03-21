@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace CleanArchMvc.Domain.Entities
 {
-    public sealed class Category // O modificador sealed define que a classe em questão não pode ser herdada.
+    public sealed class Category : BaseEntity // O modificador sealed define que a classe em questão não pode ser herdada.
     {
-
-        public int Id { get; private set; }
         public string Name { get; private set; }
         public ICollection<Product> Products{ get; set; }  // No projeto, uma categoria podera ter mais de um produto. Vamos setar a seguinte propriedade.
 

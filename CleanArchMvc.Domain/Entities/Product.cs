@@ -2,9 +2,8 @@
 
 namespace CleanArchMvc.Domain.Entities
 {
-    public sealed class Product // o modificador sealed define que a classe em questão não pode ser herdada.
+    public sealed class Product: BaseEntity // o modificador sealed define que a classe em questão não pode ser herdada.
     {
-        public int Id { get; private set; }
         public string Name { get; private set; }
         public string Description { get; private set; }
         public decimal Price { get; private set; }
