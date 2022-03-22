@@ -1,4 +1,5 @@
 ﻿using CleanArchMvc.Domain.Validation;
+using System;
 
 namespace CleanArchMvc.Domain.Entities
 {
@@ -12,7 +13,7 @@ namespace CleanArchMvc.Domain.Entities
 
         
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Product Category { get; set; }
         // Adicionamos no modelo product uma referencia (chave estrangeira) a categoria
         // essas propriedades de navegação sao para que o ef core que crie uma tabela intermediaria entre Category e Product,
         // ja que há uma relação n:1.
@@ -25,6 +26,8 @@ namespace CleanArchMvc.Domain.Entities
         public Product(int id, string name, string description, decimal price, int stock, string image)
         {
             DomainExceptionValidation.When(id < Constants.Constants.ZERO_VALUE, Constants.Constants.ERROR_MINIMUM_ID_VALUE);
+            Id = id;
+            ValidateDomain(name, description, price, stock, image);
         }
 
         public void Update(string name, string description, decimal price, int stock, string image, int categoryId)
