@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace CleanArchMvc.Domain.Interfaces
 {
-    internal interface IProductRepository
+    public interface IProductRepository
     {
         Task<IEnumerable<Product>> GetProductsAsync(); // o Task<> confirma que o método assincrono
         Task<Product> GetProductByIdAsync(int? id);
