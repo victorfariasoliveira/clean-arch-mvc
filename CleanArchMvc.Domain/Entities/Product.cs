@@ -13,7 +13,7 @@ namespace CleanArchMvc.Domain.Entities
 
         
         public int CategoryId { get; set; }
-        public Product Category { get; set; }
+        public Category Category { get; set; }
         // Adicionamos no modelo product uma referencia (chave estrangeira) a categoria
         // essas propriedades de navegação sao para que o ef core que crie uma tabela intermediaria entre Category e Product,
         // ja que há uma relação n:1.
