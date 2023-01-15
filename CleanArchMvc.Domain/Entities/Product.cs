@@ -35,7 +35,8 @@ namespace CleanArchMvc.Domain.Entities
             ValidateDomain(name, description, price, stock, image);
         }
 
-        private void ValidateDomain(string name, string description, decimal price, int stock, string image) // Adicionando validadores no dominio de produto.
+        private void ValidateDomain(string name, string description, decimal price, int stock, string image) 
+            // Adicionando validadores no dominio de produto.
         {
             DomainExceptionValidation.When(string.IsNullOrEmpty(name), Constants.Constants.ERROR_INVALID_NAME);
             DomainExceptionValidation.When(
