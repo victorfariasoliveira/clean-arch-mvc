@@ -8,7 +8,6 @@ namespace CleanArchMvc.Domain.Interfaces
     {
         Task<IEnumerable<Product>> GetProductsAsync(); // o Task<> confirma que o método assincrono
         Task<Product> GetProductByIdAsync(int? id);
-        Task<Product> GetProductCategoryByIdAsync(int? id);
         Task<Product> CreateAsync(Product product);
         Task<Product> UpdateAsync(Product product);
         Task<Product> RemoveAsync(Product product);

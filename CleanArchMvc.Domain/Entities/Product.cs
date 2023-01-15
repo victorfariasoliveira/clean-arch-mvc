@@ -1,9 +1,8 @@
 ﻿using CleanArchMvc.Domain.Validation;
-using System;
 
 namespace CleanArchMvc.Domain.Entities
 {
-    public sealed class Product: BaseEntity // o modificador sealed define que a classe em questão não pode ser herdada.
+    public sealed class Product : BaseEntity // o modificador sealed define que a classe em questão não pode ser herdada.
     {
         public string Name { get; private set; }
         public string Description { get; private set; }
@@ -11,7 +10,7 @@ namespace CleanArchMvc.Domain.Entities
         public int Stock { get; private set; }
         public string Image { get; private set; }
 
-        
+
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         // Adicionamos no modelo product uma referencia (chave estrangeira) a categoria
@@ -20,7 +19,7 @@ namespace CleanArchMvc.Domain.Entities
 
         public Product(string name, string description, decimal price, int stock, string image)
         {
-            ValidateDomain(name, description, price, stock, image); 
+            ValidateDomain(name, description, price, stock, image);
         }
 
         public Product(int id, string name, string description, decimal price, int stock, string image)
@@ -35,8 +34,8 @@ namespace CleanArchMvc.Domain.Entities
             ValidateDomain(name, description, price, stock, image);
         }
 
-        private void ValidateDomain(string name, string description, decimal price, int stock, string image) 
-            // Adicionando validadores no dominio de produto.
+        private void ValidateDomain(string name, string description, decimal price, int stock, string image)
+        // Adicionando validadores no dominio de produto.
         {
             DomainExceptionValidation.When(string.IsNullOrEmpty(name), Constants.Constants.ERROR_INVALID_NAME);
             DomainExceptionValidation.When(
